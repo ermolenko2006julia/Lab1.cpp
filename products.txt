@@ -1,0 +1,3 @@
+milk;A;45;10
+water;drink;99;20
+potatoes;C;78;40
