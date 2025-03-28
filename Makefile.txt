@@ -1,0 +1,29 @@
+# Компилятор
+CXX = g++
+
+# Флаги компиляции
+CXXFLAGS = -Wall -std=c++11
+
+# Исходные файлы
+SRCS = Lab1.cpp my_array.cpp product.cpp
+
+# Объектные файлы
+OBJS = $(SRCS:.cpp=.o)
+
+# Имя исполняемого файла
+TARGET = lab1
+
+# Правило по умолчанию
+all: $(TARGET)
+
+# Сборка исполняемого файла
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+
+# Правило для компиляции .cpp файлов в .o
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Очистка
+clean:
+	rm -f $(OBJS) $(TARGET)
